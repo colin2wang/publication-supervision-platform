@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS ai_models (
     model_code VARCHAR(64) NOT NULL,
     model_name VARCHAR(256) NOT NULL,
     model_type SMALLINT,
-    version VARCHAR(32),
+    model_version VARCHAR(32),
     description TEXT,
     endpoint VARCHAR(512),
     api_key VARCHAR(256),
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS ai_models (
     updated_by VARCHAR(64),
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     deleted BOOLEAN DEFAULT FALSE,
-    version INTEGER DEFAULT 0
+    opt_version INTEGER DEFAULT 0
 );
 
 COMMENT ON TABLE ai_models IS 'AI模型表';
@@ -99,7 +99,7 @@ COMMENT ON COLUMN ai_models.id IS '模型ID';
 COMMENT ON COLUMN ai_models.model_code IS '模型编码';
 COMMENT ON COLUMN ai_models.model_name IS '模型名称';
 COMMENT ON COLUMN ai_models.model_type IS '模型类型 1大语言模型 2图像识别 3文本分类 4情感分析 5OCR 6向量模型 7其他';
-COMMENT ON COLUMN ai_models.version IS '版本号';
+COMMENT ON COLUMN ai_models.model_version IS '版本号';
 COMMENT ON COLUMN ai_models.description IS '描述';
 COMMENT ON COLUMN ai_models.endpoint IS 'API端点';
 COMMENT ON COLUMN ai_models.api_key IS 'API密钥';

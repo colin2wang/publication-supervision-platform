@@ -6,11 +6,13 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-@TableName("ai_model")
+@TableName("ai_models")
 public class AiModel {
 
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;
+
+    private String modelCode;
 
     private String modelName;
 
@@ -18,7 +20,7 @@ public class AiModel {
 
     private String modelVersion;
 
-    private String provider;
+    private String description;
 
     private String endpoint;
 
@@ -26,10 +28,12 @@ public class AiModel {
 
     private String config;
 
+    private String metrics;
+
     private Integer status;
 
     @Version
-    private Integer version;
+    private Integer optVersion;
 
     @TableLogic
     private Integer deleted;

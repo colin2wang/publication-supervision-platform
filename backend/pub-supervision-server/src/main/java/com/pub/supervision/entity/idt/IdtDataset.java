@@ -6,19 +6,22 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-@TableName("idt_dataset")
+@TableName("idt_datasets")
 public class IdtDataset {
 
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;
     private String datasetName;
-    private String description;
     private Integer datasetType;
-    private Integer totalItems;
+    private String datasetVersion;
+    private String description;
+    private Integer sampleCount;
+    private Double qualityScore;
     private Integer status;
+    private String storagePath;
     private Long creatorId;
     @Version
-    private Integer version;
+    private Integer optVersion;
     @TableLogic
     private Integer deleted;
     @TableField(fill = FieldFill.INSERT)

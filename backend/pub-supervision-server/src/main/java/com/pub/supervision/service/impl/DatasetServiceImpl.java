@@ -29,13 +29,13 @@ public class DatasetServiceImpl extends ServiceImpl<IdtDatasetMapper, IdtDataset
         return new PageResult<>(p.getRecords(), p.getTotal(), pageNum, pageSize);
     }
     @Override public IdtDataset getById(Long id) { IdtDataset d = super.getById(id); if (d == null) throw new BusinessException(ResultCode.NOT_FOUND); return d; }
-    @Override public void create(IdtDataset ds) { ds.setTotalItems(0); save(ds); }
+    @Override public void create(IdtDataset ds) { ds.setSampleCount(0); save(ds); }
     @Override public void update(IdtDataset ds) { updateById(ds); }
     @Override public void delete(Long id) { removeById(id); }
     @Override public void uploadItem(Long datasetId, MultipartFile file) {
         try { String content = new String(file.getBytes(), StandardCharsets.UTF_8);
         IdtDatasetItem item = new IdtDatasetItem(); item.setDatasetId(datasetId); item.setItemName(file.getOriginalFilename()); item.setItemContent(content); item.setStatus(0); itemMapper.insert(item);
-        IdtDataset ds = getById(datasetId); ds.setTotalItems(ds.getTotalItems() + 1); updateById(ds); } catch (IOException e) { throw new BusinessException("文件读取失败"); }
+        IdtDataset ds = getById(datasetId); ds.setSampleCount(ds.getSampleCount() + 1); updateById(ds); } catch (IOException e) { throw new BusinessException("文件读取失败"); }
     }
     @Override public void annotate(Long datasetId, Long itemId, String label) { IdtDatasetItem item = itemMapper.selectById(itemId); item.setItemLabel(label); item.setStatus(1); itemMapper.updateById(item); }
     @Override public void review(Long datasetId) { IdtDataset ds = getById(datasetId); ds.setStatus(2); updateById(ds); }

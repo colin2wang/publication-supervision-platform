@@ -372,7 +372,7 @@ CREATE TABLE IF NOT EXISTS idt_datasets (
     id BIGINT PRIMARY KEY,
     dataset_name VARCHAR(256) NOT NULL,
     dataset_type SMALLINT,
-    version VARCHAR(32),
+    dataset_version VARCHAR(32),
     description TEXT,
     sample_count INTEGER DEFAULT 0,
     quality_score DECIMAL(5,4),
@@ -383,14 +383,14 @@ CREATE TABLE IF NOT EXISTS idt_datasets (
     updated_by VARCHAR(64),
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     deleted BOOLEAN DEFAULT FALSE,
-    version INTEGER DEFAULT 0
+    opt_version INTEGER DEFAULT 0
 );
 
 COMMENT ON TABLE idt_datasets IS '数据集表';
 COMMENT ON COLUMN idt_datasets.id IS '数据集ID';
 COMMENT ON COLUMN idt_datasets.dataset_name IS '数据集名称';
 COMMENT ON COLUMN idt_datasets.dataset_type IS '数据集类型 1训练集 2验证集 3测试集';
-COMMENT ON COLUMN idt_datasets.version IS '版本号';
+COMMENT ON COLUMN idt_datasets.dataset_version IS '版本号';
 COMMENT ON COLUMN idt_datasets.description IS '描述';
 COMMENT ON COLUMN idt_datasets.sample_count IS '样本数量';
 COMMENT ON COLUMN idt_datasets.quality_score IS '质量评分';

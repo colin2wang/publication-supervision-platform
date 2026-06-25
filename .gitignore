@@ -3,6 +3,8 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .kotlin
+.idea/
+**/*.iml
 
 ### Eclipse ###
 .apt_generated
@@ -29,11 +31,11 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-# Jet Brains
-.idea/
-
 # Node JS
 **/node_modules/*
 
 # Java
 **/target/*
+
+# Others
+publication-supervision-platform.zip
