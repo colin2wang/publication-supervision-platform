@@ -14,7 +14,7 @@ public class DepartmentServiceImpl extends ServiceImpl<SysDepartmentMapper, SysD
     @Override
     public List<SysDepartment> getTree() {
         LambdaQueryWrapper<SysDepartment> w = new LambdaQueryWrapper<>();
-        w.orderByAsc(SysDepartment::getOrderNum);
+        w.orderByAsc(SysDepartment::getSort);
         return buildTree(list(w), 0L);
     }
     private List<SysDepartment> buildTree(List<SysDepartment> depts, Long parentId) {

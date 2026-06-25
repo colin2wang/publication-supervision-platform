@@ -14,7 +14,7 @@ public class MenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impleme
     @Override
     public List<SysMenu> getTree() {
         LambdaQueryWrapper<SysMenu> w = new LambdaQueryWrapper<>();
-        w.orderByAsc(SysMenu::getOrderNum);
+        w.orderByAsc(SysMenu::getSort);
         return buildTree(list(w), 0L);
     }
     private List<SysMenu> buildTree(List<SysMenu> menus, Long parentId) {

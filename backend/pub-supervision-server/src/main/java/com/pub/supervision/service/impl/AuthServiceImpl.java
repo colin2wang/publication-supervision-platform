@@ -63,9 +63,10 @@ public class AuthServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impleme
         Map<String, Object> info = new HashMap<>();
         info.put("id", user.getId());
         info.put("username", user.getUsername());
-        info.put("nickname", user.getNickname());
+        info.put("realName", user.getRealName());
         info.put("avatar", user.getAvatar());
         info.put("email", user.getEmail());
+        info.put("phone", user.getPhone());
         return info;
     }
 }

@@ -14,20 +14,24 @@ public class SysUser {
     private Long id;
     private String username;
     private String password;
-    private String nickname;
+    private String realName;
+    private Integer gender;
     private String email;
     private String phone;
     private String avatar;
-    private Integer sex;
+    private Long departmentId;
+    private String position;
     private Integer status;
-    private Long deptId;
-    private String remark;
+    private LocalDateTime lastLoginAt;
+    private Integer loginCount;
+    private String createdBy;
     @Version
     private Integer version;
     @TableLogic
-    private Integer deleted;
+    private Boolean deleted;
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createdAt;
+    private String updatedBy;
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updatedAt;
 }

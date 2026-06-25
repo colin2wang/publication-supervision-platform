@@ -12,23 +12,24 @@ public class SysMenu {
 
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;
-    private String menuName;
     private Long parentId;
-    private Integer orderNum;
+    private String menuName;
+    private Integer menuType;
+    private String permissionCode;
     private String path;
     private String component;
-    private String menuType;
-    private Integer visible;
-    private Integer status;
-    private String perms;
     private String icon;
-    private String remark;
+    private Integer sort;
+    private Boolean visible;
+    private Integer status;
+    private Long createdBy;
     @Version
     private Integer version;
     @TableLogic
-    private Integer deleted;
+    private Boolean deleted;
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createdAt;
+    private Long updatedBy;
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updatedAt;
 

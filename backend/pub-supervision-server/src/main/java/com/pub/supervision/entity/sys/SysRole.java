@@ -11,17 +11,19 @@ public class SysRole {
 
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;
+    private String roleCode;
     private String roleName;
-    private String roleKey;
-    private Integer roleSort;
+    private Integer dataScope;
+    private Integer sort;
     private Integer status;
-    private String remark;
+    private Long createdBy;
     @Version
     private Integer version;
     @TableLogic
-    private Integer deleted;
+    private Boolean deleted;
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createdAt;
+    private Long updatedBy;
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updatedAt;
 }
